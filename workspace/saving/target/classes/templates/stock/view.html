@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = '情報共有一覧', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>情報詳細</h1>
+    <div th:object="${stockData}">
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">タイトル</div>
+        <div class="col pt-3 border">
+          <p th:text="*{title}"></p>
+        </div>
+      </div>
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">内容</div>
+        <div class="col pt-3 border">
+          <p th:text="*{body}" style = "white-space:pre-wrap;"></p>
+        </div>
+      </div>
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">名前</div>
+        <div class="col pt-3 border">
+          <p th:text="*{name}"></p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="text-center">
+      <a th:href="@{/stock/{id}/edit(id=*{id})}" class="btn btn-primary">　編集　</a>
+      <a href="/stock/list" class="btn btn-secondary">一覧に戻る</a>
+    </div>
+  </div>
+</body>
+</html>
